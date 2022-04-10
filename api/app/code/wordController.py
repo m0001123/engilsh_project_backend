@@ -31,8 +31,8 @@ def getWordSetClassificationData():
 def getWordByWord(request):
     try:
         word = request.POST.get('word', '')
-        db = pymysql.connect(host='163.18.10.123', port=3306,
-                             user='EPuser', passwd='e507@mis', db='entries', charset='utf8mb4')
+        db = pymysql.connect(host='mysql-server-write.alicsnet.com', port=3306,
+                             user='alicsnet_data', passwd='Z.0oIoi.O)PrEZT4', db='alicsnet_data', charset='utf8mb4')
         cursor = db.cursor()
         word_lst = []
         same_words = eng_to_ipa.get_rhymes(word)
@@ -62,8 +62,8 @@ def getWordByWord(request):
 def getWordByIPA(request):
     try:
         ipa = request.POST.get('ipa_id', '')
-        db = pymysql.connect(host='163.18.10.123', port=3306,
-                             user='EPuser', passwd='e507@mis', db='entries', charset='utf8mb4')
+        db = pymysql.connect(host='mysql-server-write.alicsnet.com', port=3306,
+                             user='alicsnet_data', passwd='Z.0oIoi.O)PrEZT4', db='alicsnet_data', charset='utf8mb4')
         cursor = db.cursor()
         word_lst = []
         getWord_sql = f'select distinct word from 8000wordhasipa where  ipaId = {ipa} order by RAND() limit 3'

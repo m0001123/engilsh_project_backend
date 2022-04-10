@@ -17,7 +17,7 @@ def getWordSetClassificationData():
     sqlSyntax = f'{sqlSELECT} {sqlFROM};'
 
     # 從資料庫執行
-    db = pymysql.connect(host='163.18.10.123', port=3306, user='EPuser', passwd='e507@mis', db='entries', charset='utf8mb4')
+    db = pymysql.connect(host='mysql-server-write.alicsnet.com', port=3306, user='alicsnet_data', passwd='Z.0oIoi.O)PrEZT4', db='alicsnet_data', charset='utf8mb4')
     cursor = db.cursor()
     cursor.execute(sqlSyntax)
     dbResult = cursor.fetchall()
@@ -33,7 +33,7 @@ def getWordSetClassificationData():
             sqlWHERE4 = f"WHERE vocalbulary_classification_list.id = '{result[0]}'"
             sqlSyntax4 = f"{sqlUPDATE4} {sqlSET4} {sqlWHERE4};"
             # 從資料庫執行
-            db4 = pymysql.connect(host='163.18.10.123', port=3306, user='EPuser', passwd='e507@mis', db='entries', charset='utf8mb4')
+            db4 = pymysql.connect(host='mysql-server-write.alicsnet.com', port=3306, user='alicsnet_data', passwd='Z.0oIoi.O)PrEZT4', db='alicsnet_data', charset='utf8mb4')
             cursor4 = db4.cursor()
             cursor4.execute(sqlSyntax4)
             db4.commit()
@@ -57,7 +57,7 @@ def getSentenceTopicData():
     sqlSyntax = f'{sqlSELECT} {sqlFROM};'
 
     # 從資料庫執行
-    db = pymysql.connect(host='163.18.10.123', port=3306, user='EPuser', passwd='e507@mis', db='entries', charset='utf8mb4')
+    db = pymysql.connect(host='mysql-server-write.alicsnet.com', port=3306, user='alicsnet_data', passwd='Z.0oIoi.O)PrEZT4', db='alicsnet_data', charset='utf8mb4')
     cursor = db.cursor()
     cursor.execute(sqlSyntax)
     dbResult = cursor.fetchall()
@@ -74,7 +74,7 @@ def getSentenceTopicData():
         sqlWHERE2 = f'WHERE topiclist.class = \"{key}\"'
         sqlSyntax2 = f'{sqlSELECT2} {sqlFROM2} {sqlWHERE2};'
         # 從資料庫執行
-        db2 = pymysql.connect(host='163.18.10.123', port=3306, user='EPuser', passwd='e507@mis', db='entries', charset='utf8mb4')
+        db2 = pymysql.connect(host='mysql-server-write.alicsnet.com', port=3306, user='alicsnet_data', passwd='Z.0oIoi.O)PrEZT4', db='alicsnet_data', charset='utf8mb4')
         cursor2 = db2.cursor()
         cursor2.execute(sqlSyntax2)
         dbResult2 = cursor2.fetchall()
@@ -103,7 +103,7 @@ def getSentenceTopicData():
                 sqlWHERE3 = f'WHERE topiclist.id = \"{result2[0]}\"'
                 sqlSyntax3 = f'{sqlUPDATE3} {sqlSET3} {sqlWHERE3};'
                 # 從資料庫執行
-                db3 = pymysql.connect(host='163.18.10.123', port=3306, user='EPuser', passwd='e507@mis', db='entries', charset='utf8mb4')
+                db3 = pymysql.connect(host='mysql-server-write.alicsnet.com', port=3306, user='alicsnet_data', passwd='Z.0oIoi.O)PrEZT4', db='alicsnet_data', charset='utf8mb4')
                 cursor3 = db3.cursor()
                 cursor3.execute(sqlSyntax3)
                 db3.commit()
@@ -140,7 +140,7 @@ def getWordPronunciationData(wordText):
     sqlSyntax = f'{sqlSELECT} {sqlFROM} {sqlWHERE};'
 
     # 從資料庫執行
-    db = pymysql.connect(host='163.18.10.123', port=3306, user='EPuser', passwd='e507@mis', db='entries', charset='utf8mb4')
+    db = pymysql.connect(host='mysql-server-write.alicsnet.com', port=3306, user='alicsnet_data', passwd='Z.0oIoi.O)PrEZT4', db='alicsnet_data', charset='utf8mb4')
     cursor = db.cursor()
     cursor.execute(sqlSyntax)
     dbResult = cursor.fetchone() # 只取一筆
@@ -251,7 +251,7 @@ def getEmojiByKeyword(emojiKeywordArray):
     sqlSyntax = f'{sqlSELECT} {sqlFROM} {sqlWHERE} {sqlORDERBY} {sqlLIMIT};'
 
     # 從資料庫執行
-    db = pymysql.connect(host='163.18.10.123', port=3306, user='EPuser', passwd='e507@mis', db='entries', charset='utf8mb4')
+    db = pymysql.connect(host='mysql-server-write.alicsnet.com', port=3306, user='alicsnet_data', passwd='Z.0oIoi.O)PrEZT4', db='alicsnet_data', charset='utf8mb4')
     cursor = db.cursor()
     cursor.execute(sqlSyntax)
     dbResult = cursor.fetchall()
@@ -338,7 +338,7 @@ def getSentencesData(sentencesID = '', sentenceLevel = '', sentenceTopic = '', s
         sqlSyntax = f"{sqlSELECT} {sqlFROM} {sqlWHERE} {sqlORDERBY} {sqlLIMIT};" 
         c.append(sqlSyntax)
         # 從資料庫執行
-        db = pymysql.connect(host='163.18.10.123', port=3306, user='EPuser', passwd='e507@mis', db='entries', charset='utf8mb4')
+        db = pymysql.connect(host='mysql-server-write.alicsnet.com', port=3306, user='alicsnet_data', passwd='Z.0oIoi.O)PrEZT4', db='alicsnet_data', charset='utf8mb4')
         cursor = db.cursor()
         cursor.execute(sqlSyntax)
         results = cursor.fetchall()
@@ -383,7 +383,7 @@ def getWordLearningData(learningClassification, learningPhase):
     sqlSyntax = f"{sqlSELECT} {sqlFROM} {sqlJOIN} {sqlWHERE} {sqlORDERBY} {sqlLIMIT};"
     
     # 從資料庫執行
-    db = pymysql.connect(host='163.18.10.123', port=3306, user='EPuser', passwd='e507@mis', db='entries', charset='utf8mb4')
+    db = pymysql.connect(host='mysql-server-write.alicsnet.com', port=3306, user='alicsnet_data', passwd='Z.0oIoi.O)PrEZT4', db='alicsnet_data', charset='utf8mb4')
     cursor = db.cursor()
     cursor.execute(sqlSyntax)
     results = cursor.fetchall()
@@ -415,7 +415,7 @@ def getWordMeaningData(word):
 
     sqlSyntax = f"{sqlSELECT} {sqlFROM} {sqlWHERE};" 
     # 從資料庫執行
-    db = pymysql.connect(host='163.18.10.123', port=3306, user='EPuser', passwd='e507@mis', db='entries', charset='utf8mb4')
+    db = pymysql.connect(host='mysql-server-write.alicsnet.com', port=3306, user='alicsnet_data', passwd='Z.0oIoi.O)PrEZT4', db='alicsnet_data', charset='utf8mb4')
     cursor = db.cursor()
     cursor.execute(sqlSyntax)
     result = cursor.fetchall()
@@ -441,7 +441,7 @@ def getWordDefinitionData(word, wordtype):
 
     sqlSyntax = f"{sqlSELECT} {sqlFROM} {sqlWHERE};" 
     # 從資料庫執行
-    db = pymysql.connect(host='163.18.10.123', port=3306, user='EPuser', passwd='e507@mis', db='entries', charset='utf8mb4')
+    db = pymysql.connect(host='mysql-server-write.alicsnet.com', port=3306, user='alicsnet_data', passwd='Z.0oIoi.O)PrEZT4', db='alicsnet_data', charset='utf8mb4')
     cursor = db.cursor()
     cursor.execute(sqlSyntax)
     result = cursor.fetchall()
@@ -469,7 +469,7 @@ def getQuizHistory(uuid):
     sqlSyntax = f"{sqlSELECT} {sqlFROM} {sqlINNERJOIN1} {sqlINNERJOIN2} {sqlWHERE} {sqlGROUPBY} {sqlORDERBY} {sqlLIMIT};" 
 
     # 從資料庫執行
-    db = pymysql.connect(host='163.18.10.123', port=3306, user='EPuser', passwd='e507@mis', db='users', charset='utf8mb4')
+    db = pymysql.connect(host='mysql-server-write.alicsnet.com', port=3306, user='alicsnet_app', passwd='BzIRJkArIpM)-.q9', db='alicsnet_app', charset='utf8mb4')
     cursor = db.cursor()
     cursor.execute(sqlSyntax)
     result = cursor.fetchall()
@@ -503,7 +503,7 @@ def getQuizDataByID(quizID, uuid):
     sqlSyntax = f"{sqlSELECT} {sqlFROM} {sqlINNERJOIN1} {sqlINNERJOIN2} {sqlWHERE};" 
 
     # 從資料庫執行
-    db = pymysql.connect(host='163.18.10.123', port=3306, user='EPuser', passwd='e507@mis', db='users', charset='utf8mb4')
+    db = pymysql.connect(host='mysql-server-write.alicsnet.com', port=3306, user='alicsnet_app', passwd='BzIRJkArIpM)-.q9', db='alicsnet_app', charset='utf8mb4')
     cursor = db.cursor()
     cursor.execute(sqlSyntax)
     dbResult = cursor.fetchall()
@@ -530,7 +530,7 @@ def saveQuizData(uuid, quizTitle, sentenceIDArray, sentenceAnswerArray, scoreArr
     sqlSyntax = f"INSERT INTO uuid_data (uuid, updated_at) VALUES ('{uuid}', NOW()) ON DUPLICATE KEY UPDATE updated_at = NOW();"
 
     # 從資料庫執行
-    db = pymysql.connect(host='163.18.10.123', port=3306, user='EPuser', passwd='e507@mis', db='users', charset='utf8mb4')
+    db = pymysql.connect(host='mysql-server-write.alicsnet.com', port=3306, user='alicsnet_app', passwd='BzIRJkArIpM)-.q9', db='alicsnet_app', charset='utf8mb4')
     cursor = db.cursor()
     cursor.execute(sqlSyntax)
     db.commit()
@@ -540,7 +540,7 @@ def saveQuizData(uuid, quizTitle, sentenceIDArray, sentenceAnswerArray, scoreArr
     sqlSyntax = f"INSERT INTO sentence_quiz (uuid, title, updated_at) VALUES ('{uuid}', '{quizTitle}', NOW());"
 
     # 從資料庫執行
-    db = pymysql.connect(host='163.18.10.123', port=3306, user='EPuser', passwd='e507@mis', db='users', charset='utf8mb4')
+    db = pymysql.connect(host='mysql-server-write.alicsnet.com', port=3306, user='alicsnet_app', passwd='BzIRJkArIpM)-.q9', db='alicsnet_app', charset='utf8mb4')
     cursor = db.cursor()
     cursor.execute(sqlSyntax)
     db.commit()
@@ -556,7 +556,7 @@ def saveQuizData(uuid, quizTitle, sentenceIDArray, sentenceAnswerArray, scoreArr
         val.append((sentenceIDArray[i], sentenceAnswerArray[i], scoreArray[i], secondsArray[i]))
 
     # 從資料庫執行
-    db = pymysql.connect(host='163.18.10.123', port=3306, user='EPuser', passwd='e507@mis', db='users', charset='utf8mb4')
+    db = pymysql.connect(host='mysql-server-write.alicsnet.com', port=3306, user='alicsnet_app', passwd='BzIRJkArIpM)-.q9', db='alicsnet_app', charset='utf8mb4')
     cursor = db.cursor()
     cursor.executemany(sqlSyntax, val)
     db.commit()
@@ -596,7 +596,7 @@ def updateQuizData(uuid, quizID, sentenceIDArray, sentenceAnswerArray, scoreArra
         val.append((sentenceAnswerArray[i], scoreArray[i], secondsArray[i], sentenceIDArray[i]))
 
     # 從資料庫執行
-    db = pymysql.connect(host='163.18.10.123', port=3306, user='EPuser', passwd='e507@mis', db='users', charset='utf8mb4')
+    db = pymysql.connect(host='mysql-server-write.alicsnet.com', port=3306, user='alicsnet_app', passwd='BzIRJkArIpM)-.q9', db='alicsnet_app', charset='utf8mb4')
     cursor = db.cursor()
     cursor.executemany(sqlSyntax, val)
     db.commit()
@@ -628,7 +628,7 @@ def minimalPairFinder(ipa1, ipa2):
     sqlSyntax = f"{sqlSELECT} {sqlFROM} {sqlWHERE} {sqlORDERBY} {sqlLIMIT};"
 
     # 從資料庫執行
-    db = pymysql.connect(host='163.18.10.123', port=3306, user='EPuser', passwd='e507@mis', db='entries', charset='utf8mb4')
+    db = pymysql.connect(host='mysql-server-write.alicsnet.com', port=3306, user='alicsnet_data', passwd='Z.0oIoi.O)PrEZT4', db='alicsnet_data', charset='utf8mb4')
     cursor = db.cursor()
     cursor.execute(sqlSyntax)
     dbResult = cursor.fetchall()
@@ -657,7 +657,7 @@ def minimalPairOneFinder(ipa):
     sqlSyntax = f"{sqlSELECT} {sqlFROM} {sqlWHERE} {sqlORDERBY} {sqlLIMIT};"
 
     # 從資料庫執行
-    db = pymysql.connect(host='163.18.10.123', port=3306, user='EPuser', passwd='e507@mis', db='entries', charset='utf8mb4')
+    db = pymysql.connect(host='mysql-server-write.alicsnet.com', port=3306, user='alicsnet_data', passwd='Z.0oIoi.O)PrEZT4', db='alicsnet_data', charset='utf8mb4')
     cursor = db.cursor()
     cursor.execute(sqlSyntax)
     dbResult = cursor.fetchall()
@@ -687,7 +687,7 @@ def minimalPairTwoFinder(ipa1, ipa2):
     sqlSyntax = f"{sqlSELECT} {sqlFROM} {sqlWHERE} {sqlORDERBY} {sqlLIMIT};"
 
     # 從資料庫執行
-    db = pymysql.connect(host='163.18.10.123', port=3306, user='EPuser', passwd='e507@mis', db='entries', charset='utf8mb4')
+    db = pymysql.connect(host='mysql-server-write.alicsnet.com', port=3306, user='alicsnet_data', passwd='Z.0oIoi.O)PrEZT4', db='alicsnet_data', charset='utf8mb4')
     cursor = db.cursor()
     cursor.execute(sqlSyntax)
     dbResult = cursor.fetchall()
@@ -712,8 +712,8 @@ def minimalPairTwoFinder(lett1, lett2):
     dataArray = []
 
     sql = f"SELECT * from ngsl30k WHERE IPA LIKE '%{lett1}%' OR IPA LIKE '%{lett2}%';"
-    db = pymysql.connect(host='163.18.10.123', port=3306, user='EPuser',
-                    passwd='e507@mis', db='entries', charset='utf8mb4')
+    db = pymysql.connect(host='mysql-server-write.alicsnet.com', port=3306, user='EPuser',
+                    passwd='e507@mis', db='alicsnet_data', charset='utf8mb4')
 
     cursor = db.cursor()
     cursor.execute(sql)
@@ -759,7 +759,7 @@ def minimalPairWordFinder(word1):
     sqlSyntax = f"{sqlSELECT} {sqlFROM} {sqlWHERE} {sqlORDERBY} {sqlLIMIT};"
 
     # 從資料庫執行
-    db = pymysql.connect(host='163.18.10.123', port=3306, user='EPuser', passwd='e507@mis', db='entries', charset='utf8mb4')
+    db = pymysql.connect(host='mysql-server-write.alicsnet.com', port=3306, user='alicsnet_data', passwd='Z.0oIoi.O)PrEZT4', db='alicsnet_data', charset='utf8mb4')
     cursor = db.cursor()
     cursor.execute(sqlSyntax)
     dbResult = cursor.fetchall()
@@ -908,7 +908,7 @@ def getWordSetList(uid, learningClassification):
     sqlSyntax = f"{sqlSELECT} {sqlFROM} {sqlWHERE} {sqlORDERBY};" 
 
     # 從資料庫執行
-    db = pymysql.connect(host='163.18.10.123', port=3306, user='EPuser', passwd='e507@mis', db='users', charset='utf8mb4')
+    db = pymysql.connect(host='mysql-server-write.alicsnet.com', port=3306, user='alicsnet_app', passwd='BzIRJkArIpM)-.q9', db='alicsnet_app', charset='utf8mb4')
     cursor = db.cursor()
     cursor.execute(sqlSyntax)
     results = cursor.fetchall()
@@ -939,7 +939,7 @@ def getWordSetList(uid, learningClassification):
         sqlSyntax2 = f"{sqlSELECT2} {sqlFROM2} {sqlJOIN2} {sqlWHERE2} {sqlORDERBY2} {sqlLIMIT2};"
         
         # 從資料庫執行
-        db2 = pymysql.connect(host='163.18.10.123', port=3306, user='EPuser', passwd='e507@mis', db='entries', charset='utf8mb4')
+        db2 = pymysql.connect(host='mysql-server-write.alicsnet.com', port=3306, user='alicsnet_data', passwd='Z.0oIoi.O)PrEZT4', db='alicsnet_data', charset='utf8mb4')
         cursor2 = db2.cursor()
         cursor2.execute(sqlSyntax2)
         results2 = cursor2.fetchall()
@@ -969,7 +969,7 @@ def getWordSetList(uid, learningClassification):
     sqlWHERE3 = f"WHERE vocalbulary_classification_list.id = '{learningClassification}'"
     sqlSyntax3 = f"{sqlSELECT3} {sqlFROM3} {sqlWHERE3};"
     # 從資料庫執行
-    db3 = pymysql.connect(host='163.18.10.123', port=3306, user='EPuser', passwd='e507@mis', db='entries', charset='utf8mb4')
+    db3 = pymysql.connect(host='mysql-server-write.alicsnet.com', port=3306, user='alicsnet_data', passwd='Z.0oIoi.O)PrEZT4', db='alicsnet_data', charset='utf8mb4')
     cursor3 = db3.cursor()
     cursor3.execute(sqlSyntax3)
     dbResult3 = cursor3.fetchone() # 只取一筆
@@ -998,7 +998,7 @@ def addWordSet(uid, learningClassification, learningPhase):
     sqlSyntax = f"INSERT INTO word_set (uuid, learning_classification, learning_phase) VALUES ('{uid}', '{learningClassification}', '{learningPhase}');" 
 
     # 從資料庫執行
-    db = pymysql.connect(host='163.18.10.123', port=3306, user='EPuser', passwd='e507@mis', db='users', charset='utf8mb4')
+    db = pymysql.connect(host='mysql-server-write.alicsnet.com', port=3306, user='alicsnet_app', passwd='BzIRJkArIpM)-.q9', db='alicsnet_app', charset='utf8mb4')
     cursor = db.cursor()
     cursor.execute(sqlSyntax)
     db.commit()
@@ -1019,7 +1019,7 @@ def getWordSetTotalList(index):
 
     sqlSyntax3 = f"{sqlSELECT3} {sqlFROM3} {sqlJOIN3} {sqlWHERE3};"
     ## 從資料庫執行
-    db3 = pymysql.connect(host='163.18.10.123', port=3306, user='EPuser', passwd='e507@mis', db='entries', charset='utf8mb4')
+    db3 = pymysql.connect(host='mysql-server-write.alicsnet.com', port=3306, user='alicsnet_data', passwd='Z.0oIoi.O)PrEZT4', db='alicsnet_data', charset='utf8mb4')
     cursor3 = db3.cursor()
     cursor3.execute(sqlSyntax3)
     dbResult3 = cursor3.fetchone() # 只取一筆
@@ -1058,7 +1058,7 @@ def getWordSetTotalList(index):
             sqlSyntax2 = f"{sqlSELECT2} {sqlFROM2} {sqlJOIN2} {sqlWHERE2} {sqlORDERBY2} {sqlLIMIT2};"
             
             # 從資料庫執行
-            db2 = pymysql.connect(host='163.18.10.123', port=3306, user='EPuser', passwd='e507@mis', db='entries', charset='utf8mb4')
+            db2 = pymysql.connect(host='mysql-server-write.alicsnet.com', port=3306, user='alicsnet_data', passwd='Z.0oIoi.O)PrEZT4', db='alicsnet_data', charset='utf8mb4')
             cursor2 = db2.cursor()
             cursor2.execute(sqlSyntax2)
             results2 = cursor2.fetchall()
@@ -1108,7 +1108,7 @@ def getWordList(index, dataLimit = ''):
     sqlSyntax = f"{sqlSELECT} {sqlFROM} {sqlJOIN} {sqlWHERE} {sqlORDERBY} {sqlLIMIT};"
     
     # 從資料庫執行
-    db = pymysql.connect(host='163.18.10.123', port=3306, user='EPuser', passwd='e507@mis', db='entries', charset='utf8mb4')
+    db = pymysql.connect(host='mysql-server-write.alicsnet.com', port=3306, user='alicsnet_data', passwd='Z.0oIoi.O)PrEZT4', db='alicsnet_data', charset='utf8mb4')
     cursor = db.cursor()
     cursor.execute(sqlSyntax)
     results = cursor.fetchall()
@@ -1142,7 +1142,7 @@ def getWordRowIndex(word):
     sqlSyntax = f"{sqlSELECT} {sqlFROM} {sqlWHERE};"
     
     # 從資料庫執行
-    db = pymysql.connect(host='163.18.10.123', port=3306, user='EPuser', passwd='e507@mis', db='entries', charset='utf8mb4')
+    db = pymysql.connect(host='mysql-server-write.alicsnet.com', port=3306, user='alicsnet_data', passwd='Z.0oIoi.O)PrEZT4', db='alicsnet_data', charset='utf8mb4')
     cursor = db.cursor()
     cursor.execute(sqlSyntax)
     dbResult = cursor.fetchone() # 只取一筆
@@ -1170,7 +1170,7 @@ def getWordData(word):
     sqlSyntax = f"{sqlSELECT} {sqlFROM} {sqlWHERE};"
     
     # 從資料庫執行
-    db = pymysql.connect(host='163.18.10.123', port=3306, user='EPuser', passwd='e507@mis', db='entries', charset='utf8mb4')
+    db = pymysql.connect(host='mysql-server-write.alicsnet.com', port=3306, user='alicsnet_data', passwd='Z.0oIoi.O)PrEZT4', db='alicsnet_data', charset='utf8mb4')
     cursor = db.cursor()
     cursor.execute(sqlSyntax)
     dbResult = cursor.fetchone() # 只取一筆

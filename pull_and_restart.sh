@@ -1,7 +1,7 @@
 #!/bin/bash
 
 git fetch origin
-git pull origin master
+git pull --force origin master
 
 pipenv run uwsgi --reload /tmp/api-master.pid
 

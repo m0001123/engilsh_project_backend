@@ -76,8 +76,12 @@ WSGI_APPLICATION = 'api.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'alicsnet_api',
+        'USER': 'alicsnet_api',
+        'PASSWORD': 'rAgu9H_QKX.C*DId',
+        'HOST': 'database.cluster-c07wabporzi8.us-west-1.rds.amazonaws.com',
+        'PORT': '3306'
     }
 }
 

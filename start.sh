@@ -2,6 +2,6 @@
 
 cd api
 
-pipenv run uwsgi --ini uwsgi.ini
+pipenv run "uwsgi --ini uwsgi.ini"
 
 exit 0

@@ -7,6 +7,8 @@ git reset --hard origin/master
 #最後重新拉回來
 git pull origin master
 
+chmod 755 -R *
+
 pipenv run uwsgi --reload /tmp/api-master.pid
 
 exit 0

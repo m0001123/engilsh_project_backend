@@ -3,4 +3,4 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse("I am Django 3.1 !!!xxxxxxOcLDcccK")
+    return HttpResponse("I am Django 3.1 !!!更改")

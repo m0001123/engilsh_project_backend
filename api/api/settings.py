@@ -80,7 +80,7 @@ DATABASES = {
         'NAME': 'alicsnet_api',
         'USER': 'alicsnet_api',
         'PASSWORD': 'rAgu9H_QKX.C*DId',
-        'HOST': 'database.cluster-c07wabporzi8.us-west-1.rds.amazonaws.com',
+        'HOST': 'mysql-server-write.alicsnet.com',
         'PORT': '3306'
     }
 }

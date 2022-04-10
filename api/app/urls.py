@@ -3,8 +3,10 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('oo', views.index, name='index'),
-
-
+    path('sentence/<type>', views.sentence),
+    path('word/<type>', views.word),
+    path('grammar/<type>', views.grammar),
+    path('quiz/<type>', views.quiz),
+    path('rasa/<type>', views.rasa),
+    path('minimalPair/<type>', views.minimalPair),
 ]

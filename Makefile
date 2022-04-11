@@ -20,7 +20,7 @@ git-pull:
 ##### wsgi 相關
 wsgi-start:
 	@echo "# wsgi 服務正在啟動 ..."
-	@pipenv run uwsgi --ini ./api/uwsgi.ini
+	@pipenv run uwsgi --ini ./api/uwsgi.ini &
 	@echo "# wsgi 服務已啟動"
 wsgi-reload:
 	@echo "# wsgi 服務正在重啟 ..."

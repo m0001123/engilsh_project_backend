@@ -20,7 +20,7 @@ git-pull:
 ##### wsgi 相關
 wsgi-start:
 	@echo "# wsgi 服務正在啟動 ..."
-	@if [ -e /tmp/api-master.pid ]; then echo "# wsgi 服務已存在"; else pipenv run uwsgi --ini ./api/uwsgi.ini --daemonize /var/log/uwsgi/api.alicsnet.com.log && echo "# wsgi 服務已啟動"; fi
+	@if [ -e /tmp/api-master.pid ]; then echo "# wsgi 服務已存在"; else pipenv run uwsgi --ini ./api/uwsgi.ini && echo "# wsgi 服務已啟動"; fi
 wsgi-reload:
 	@echo "# wsgi 服務正在重啟 ..."
 	@if [ -e /tmp/api-master.pid ]; then pipenv run uwsgi --reload /tmp/api-master.pid && echo "# wsgi 服務已重啟"; else echo "# wsgi 服務未啟動"; fi

@@ -9,6 +9,10 @@ git pull origin master
 
 chmod 755 -R *
 
+# 防止重啟 uwsgi 後 Memory Leak
+killall -9 java
+
+# 重啟 uwsgi 服務
 pipenv run uwsgi --reload /tmp/api-master.pid
 
 exit 0

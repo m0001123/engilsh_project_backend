@@ -20,18 +20,13 @@ git-pull:
 ##### wsgi 相關
 wsgi-start:
 	@echo "# wsgi 服務正在啟動 ..."
-	@pipenv run uwsgi --ini ./api/uwsgi.ini &
-	@echo "# wsgi 服務已啟動"
+	@if [ -e /tmp/api-master.pid ]; then echo "# wsgi 服務已存在"; else pipenv run uwsgi --ini ./api/uwsgi.ini &; echo "# wsgi 服務已啟動" fi
 wsgi-reload:
 	@echo "# wsgi 服務正在重啟 ..."
-	@pipenv run uwsgi --reload /tmp/api-master.pid
-	@echo "# wsgi 服務已重啟"
+	@if [ -e /tmp/api-master.pid ]; then pipenv run uwsgi --reload /tmp/api-master.pid; echo "# wsgi 服務已重啟" else echo "# wsgi 服務未啟動" fi
 wsgi-stop:
 	@echo "# wsgi 服務正在關閉 ..."
-	@if [ -e /tmp/api-master.pid ]; then pipenv run uwsgi --stop /tmp/api-master.pid; fi
-	@echo "# wsgi 服務已關閉"
-	@echo "## 等待五秒 ..."
-	@sleep 5
+	@if [ -e /tmp/api-master.pid ]; then pipenv run uwsgi --stop /tmp/api-master.pid; echo "# wsgi 服務已關閉，等待五秒鐘 ..."; sleep 5; else echo "# wsgi 服務未啟動" fi
 wsgi-view-log:
 	@echo "# 以下為 wsgi 服務的記錄檔 >>>>>>>>>>"
 	@cat /var/log/uwsgi/api.alicsnet.com.log

@@ -131,6 +131,9 @@ STATIC_ROOT = BASE_DIR / 'static'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # django-cors-headers 設定
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5000",
+]
 CORS_ALLOWED_ORIGIN_REGEXES  = [
      r"^https://\w+\.alicsnet\.com$" ,
 ]

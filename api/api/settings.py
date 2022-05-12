@@ -131,4 +131,6 @@ STATIC_ROOT = BASE_DIR / 'static'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ORIGIN_WHITELIST = (
      '*.alicsnet.com',
+     'api.alicsnet.com',
+     'app.alicsnet.com',
 )

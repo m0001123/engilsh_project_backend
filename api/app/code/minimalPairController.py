@@ -73,6 +73,7 @@ def minimalPairWordFinder(request):
     try:
         # 蒐集資料
         word1 = request.POST.get('word1', '')
+        dataLimit = request.POST.get('dataLimit', '')
 
         # 判斷資料
         if (word1 == ''):    
@@ -80,7 +81,7 @@ def minimalPairWordFinder(request):
    
         # 整理從資料庫得到的資料
 
-        dataArray = appAPIUtils.minimalPairWordFinder(word1)
+        dataArray = appAPIUtils.minimalPairWordFinder(word1, dataLimit)
         # 初始化回傳值
         response = {
             'apiStatus' : 'success',

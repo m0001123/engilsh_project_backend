@@ -81,6 +81,9 @@ def rasa(request, type):
 
 @csrf_exempt
 def minimalPair(request, type):
+    if request.method == 'GET':
+        if type == 'getIPAAvailable':
+            return minimalPairController.getIPAAvailable()
     if request.method == 'POST':
         if type == 'oneFinder':
             return minimalPairController.minimalPairOneFinder(request)

@@ -96,5 +96,23 @@ def minimalPairWordFinder(request):
     # 將回傳值回傳
     return JsonResponse(response)
 
+def getIPAAvailable():
+    try:
+        dataArray = appAPIUtils.getIPAAvailable()
+        # 初始化回傳值
+        response = {
+            'apiStatus' : 'success',
+			'apiMessage' : 'success',
+			'data' : dataArray,
+        }
+    except Exception as e:
+        # 初始化回傳值
+        response = {
+            'apiStatus' : 'error',
+			'apiMessage' : str(e),
+        }
+
+    # 將回傳值回傳
+    return JsonResponse(response)
 
     

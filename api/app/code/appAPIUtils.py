@@ -1195,3 +1195,31 @@ def getWordData(word):
     }
     
     return response
+
+def getIPAAvailable():
+
+    # 初始化SQL語法
+    sqlSELECT = f'SELECT DISTINCT L_pair AS IPA1, GROUP_CONCAT(DISTINCT R_pair) AS IPA2'
+    sqlFROM = f'FROM ipa_30k_minimal_pair'
+    sqlINNERJOIN = f'INNER JOIN (SELECT L_pair AS new_pair FROM ipa_30k_minimal_pair UNION SELECT R_pair AS new_pair FROM ipa_30k_minimal_pair) TableD on ipa_30k_minimal_pair.L_pair= TableD.new_pair OR ipa_30k_minimal_pair.R_pair= TableD.new_pair'
+    sqlGROUPBY = f'GROUP BY IPA1'
+    sqlSyntax = f'{sqlSELECT} {sqlFROM} {sqlINNERJOIN} {sqlGROUPBY};'
+
+    # 從資料庫執行
+    db = pymysql.connect(host='mysql-server-read.alicsnet.com', port=3306, user='alicsnet_data', passwd='Z.0oIoi.O)PrEZT4', db='alicsnet_data', charset='utf8mb4')
+    cursor = db.cursor()
+    cursor.execute(sqlSyntax)
+    dbResult = cursor.fetchall()
+    db.close()
+
+    # 整理資料庫回傳資料
+    response = []
+    for result in dbResult:
+        data = {
+            'IPA1' : result[0],
+            'IPA2' : result[1].split(','),
+        }
+        response.append(data)
+        pass
+    
+    return response

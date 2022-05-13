@@ -675,14 +675,18 @@ def minimalPairOneFinder(ipa):
 
     return dataArray
   
-def minimalPairTwoFinder(ipa1, ipa2):
+def minimalPairTwoFinder(ipa1, ipa2, dataLimit = ''):
+
+    if (dataLimit == ''):    
+        dataLimit = 3
+
 
     sqlSELECT = f"SELECT *"
     sqlFROM = f"FROM ipa_30k_minimal_pair"
     sqlWHERE = f"WHERE (ipa_30k_minimal_pair.L_pair LIKE '{ipa1}' AND ipa_30k_minimal_pair.R_pair LIKE '{ipa2}') OR (ipa_30k_minimal_pair.L_pair LIKE '{ipa2}' AND ipa_30k_minimal_pair.R_pair LIKE '{ipa1}')"
         #sqlWHERE = f"WHERE (ipa_word.L_pair LIKE '/{ipa1}/' AND ipa_word.R_pair LIKE '/{ipa2}/') OR (ipa_word.L_pair LIKE '/{ipa2}/' AND ipa_word.R_pair LIKE '/{ipa1}/')"
     sqlORDERBY = f"ORDER BY RAND()"
-    sqlLIMIT = f"LIMIT 3"
+    sqlLIMIT = f"LIMIT {dataLimit}"
 
     sqlSyntax = f"{sqlSELECT} {sqlFROM} {sqlWHERE} {sqlORDERBY} {sqlLIMIT};"
 

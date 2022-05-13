@@ -42,6 +42,7 @@ def minimalPairTwoFinder(request):
         # 蒐集資料
         ipa1 = request.POST.get('ipa1', '')
         ipa2 = request.POST.get('ipa2', '')
+        dataLimit = request.POST.get('dataLimit', '')
 
         # 判斷資料
         if (ipa1 == ''):    
@@ -51,7 +52,7 @@ def minimalPairTwoFinder(request):
    
         # 整理從資料庫得到的資料
 
-        dataArray = appAPIUtils.minimalPairTwoFinder(ipa1, ipa2)
+        dataArray = appAPIUtils.minimalPairTwoFinder(ipa1, ipa2, dataLimit)
         # 初始化回傳值
         response = {
             'apiStatus' : 'success',

@@ -22,6 +22,8 @@ def sentence(request, type):
             return sentenceController.checkPronunciation(request)
         elif type == 'checkSentences2':
             return sentenceController.checkSentences2(request)
+        elif type == 'getSentenceIPA':
+            return sentenceController.getSentenceIPA(request)
 
 
 @csrf_exempt

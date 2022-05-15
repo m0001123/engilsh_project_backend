@@ -440,4 +440,18 @@ def checkSentences2(request):
 
     # 將回傳值回傳
     return JsonResponse(response)
+
+def getSentenceIPA(request):
+    sentenceList = eval (request.POST.get('sentenceList'))
+    ipaList = []
+    for i in sentenceList:
+        ipaList.append(eng_to_ipa.convert(i,False,False))
+    
+    response = JsonResponse(
+        {
+            'value':ipaList
+        }
+    )
+    
+    return response
     

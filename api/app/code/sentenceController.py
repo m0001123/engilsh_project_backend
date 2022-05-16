@@ -442,16 +442,23 @@ def checkSentences2(request):
     return JsonResponse(response)
 
 def getSentenceIPA(request):
-    sentenceList = eval (request.POST.get('sentenceList'))
-    ipaList = []
-    for i in sentenceList:
-        ipaList.append(eng_to_ipa.convert(i,False,False))
-    
-    response = JsonResponse(
-        {
-            'value':ipaList
+    try:
+        sentenceList = eval (request.POST.get('sentenceList'))
+        ipaList = []
+        for i in sentenceList:
+            ipaList.append(eng_to_ipa.convert(i,False,False))
+        
+        response =  {
+            'apiStatus' : 'success',
+            'apiMessage' : 'success',
+            'data':ipaList
+            }
+        
+    except Exception as e:
+        response = {
+            'apiStatus' : 'error',
+            'apiMessage' : str(e),
         }
-    )
     
-    return response
+    return JsonResponse(response)
     

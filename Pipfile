@@ -12,6 +12,7 @@ pymysql = "*"
 eng-to-ipa = "*"
 similar-text = "*"
 language-tool-python = "*"
+spacy = "*"
 
 [dev-packages]
 

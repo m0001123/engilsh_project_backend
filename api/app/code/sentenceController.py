@@ -488,9 +488,18 @@ def sentSegmentation(request):
     return JsonResponse(response)
 def getSentenceIPA(request):
     try:
-        sentenceList = eval (request.POST.get('sentenceList'))
+        sentenceList = request.POST.get('sentenceList')
+        if(sentenceList==""):
+            raise Exception('缺少必填參數 sentenceList')
+        try:
+            sentenceList_eval = eval(sentenceList)
+            if(type(sentenceList_eval)!=type([])):
+                raise Exception("輸入格式必須是List")
+        except Exception as e:
+            raise Exception('輸入格式必須是List')
+        sentenceList_eval = eval (sentenceList)
         ipaList = []
-        for i in sentenceList:
+        for i in sentenceList_eval:
             ipaList.append(eng_to_ipa.convert(i,False,False))
         
         response =  {

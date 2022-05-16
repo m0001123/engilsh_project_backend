@@ -460,6 +460,9 @@ def checkSentences2(request):
 def sentSegmentation(request):
     try:
         article = request.POST.get('article', '')
+        # 判斷資料
+        if (article == ''):
+            raise Exception('缺少必填參數 article')
 
         nlp = spacy.load('en_core_web_sm')
         result_sent = []

@@ -5,6 +5,7 @@ from eng_to_ipa import eng_to_ipa
 from similar_text import similar_text
 from random import choice, sample
 import re
+import ast
 
 from app.code import appAPIUtils
 
@@ -443,15 +444,20 @@ def checkSentences2(request):
 
 def getSentenceIPA(request):
     try:
+        # 蒐集資料
         sentenceList = request.POST.get('sentenceList')
-        if(sentenceList==""):
+
+        # 判斷資料
+        if (sentenceList == ''):
             raise Exception('缺少必填參數 sentenceList')
-        sentenceList_eval = eval(sentenceList)
-        if(type(sentenceList_eval)!=type([])):
+
+        sentenceListEval = ast.literal_eval(sentenceList)
+
+        if (type(sentenceListEval)!=type([])):
             raise Exception("輸入格式必須是List")
-        sentenceList_eval = eval (sentenceList)
+        
         ipaList = []
-        for i in sentenceList_eval:
+        for i in sentenceListEval:
             ipaList.append(eng_to_ipa.convert(i,False,False))
         
         response =  {

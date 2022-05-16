@@ -6,7 +6,6 @@ from eng_to_ipa import eng_to_ipa
 from similar_text import similar_text
 from random import choice, sample
 import re
-import ast
 
 from app.code import appAPIUtils
 
@@ -489,20 +488,15 @@ def sentSegmentation(request):
     return JsonResponse(response)
 def getSentenceIPA(request):
     try:
-        # 蒐集資料
         sentenceList = request.POST.get('sentenceList')
-
-        # 判斷資料
-        if (sentenceList == ''):
+        if(sentenceList==""):
             raise Exception('缺少必填參數 sentenceList')
-
-        sentenceListEval = ast.literal_eval(sentenceList)
-
-        if (type(sentenceListEval)!=type([])):
+        sentenceList_eval = eval(sentenceList)
+        if(type(sentenceList_eval)!=type([])):
             raise Exception("輸入格式必須是List")
-        
+        sentenceList_eval = eval (sentenceList)
         ipaList = []
-        for i in sentenceListEval:
+        for i in sentenceList_eval:
             ipaList.append(eng_to_ipa.convert(i,False,False))
         
         response =  {

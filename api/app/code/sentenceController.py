@@ -5,6 +5,7 @@ from eng_to_ipa import eng_to_ipa
 from similar_text import similar_text
 from random import choice, sample
 import re
+import ast
 
 from app.code import appAPIUtils
 
@@ -447,7 +448,7 @@ def getSentenceIPA(request):
         if(sentenceList==""):
             raise Exception('缺少必填參數 sentenceList')
         try:
-            sentenceList_eval = eval(sentenceList)
+            sentenceList_eval = ast.literal_eval(sentenceList)
             if(type(sentenceList_eval)!=type([])):
                 raise Exception("輸入格式必須是List")
         except Exception as e:

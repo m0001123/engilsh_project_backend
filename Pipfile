@@ -4,6 +4,14 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+django = "*"
+django-cors-headers = "*"
+djangorestframework = "*"
+uwsgi = "*"
+pymysql = "*"
+eng-to-ipa = "*"
+similar-text = "*"
+language-tool-python = "*"
 
 [dev-packages]
 

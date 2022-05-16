@@ -29,6 +29,9 @@ git-pull-master:
 	@git pull origin master
 	@chmod 755 -R *
 	@echo "# 已從 Git 上獲取最新檔案並覆蓋"
+	@echo "# 環境安裝"
+	@pipenv install
+	@echo "# 已完成環境安裝"
 ##### wsgi 相關
 wsgi-start-master:
 	@echo "# wsgi 服務正在啟動 ..."
@@ -56,6 +59,9 @@ git-pull-develop:
 	@git pull origin develop
 	@chmod 755 -R *
 	@echo "# 已從 Git 上獲取最新檔案並覆蓋"
+	@echo "# 環境安裝"
+	@pipenv install
+	@echo "# 已完成環境安裝"
 ##### wsgi 相關
 wsgi-start-develop:
 	@echo "# wsgi 服務正在啟動 ..."

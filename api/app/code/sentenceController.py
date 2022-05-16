@@ -7,7 +7,6 @@ from similar_text import similar_text
 from random import choice, sample
 import re
 import ast
-
 from app.code import appAPIUtils
 
 
@@ -489,7 +488,7 @@ def sentSegmentation(request):
     return JsonResponse(response)
 def getSentenceIPA(request):
     try:
-        sentenceList = request.POST.get('sentenceList')
+        sentenceList = request.POST.get('sentenceList','')
         if(sentenceList==""):
             raise Exception('缺少必填參數 sentenceList')
         try:

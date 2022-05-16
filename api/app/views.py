@@ -1,3 +1,4 @@
+from http.client import REQUEST_ENTITY_TOO_LARGE
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -22,6 +23,8 @@ def sentence(request, type):
             return sentenceController.checkPronunciation(request)
         elif type == 'checkSentences2':
             return sentenceController.checkSentences2(request)
+        elif type == 'sentSegmentation':
+            return sentenceController.sentSegmentation(request)
 
 
 @csrf_exempt

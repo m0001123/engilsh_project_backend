@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-k7(yv4y*q*o48pwj=v#v+s(lg-3533i_#g*#ls1siq-u($0x_%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["api.alicsnet.com"]
+ALLOWED_HOSTS = ["api-develop.alicsnet.com"]
 
 
 # Application definition

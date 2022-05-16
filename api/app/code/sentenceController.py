@@ -486,3 +486,24 @@ def sentSegmentation(request):
         }
 
     return JsonResponse(response)
+def getSentenceIPA(request):
+    try:
+        sentenceList = eval (request.POST.get('sentenceList'))
+        ipaList = []
+        for i in sentenceList:
+            ipaList.append(eng_to_ipa.convert(i,False,False))
+        
+        response =  {
+            'apiStatus' : 'success',
+            'apiMessage' : 'success',
+            'data':ipaList
+            }
+        
+    except Exception as e:
+        response = {
+            'apiStatus' : 'error',
+            'apiMessage' : str(e),
+        }
+    
+    return JsonResponse(response)
+    

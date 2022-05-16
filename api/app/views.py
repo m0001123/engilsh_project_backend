@@ -25,6 +25,8 @@ def sentence(request, type):
             return sentenceController.checkSentences2(request)
         elif type == 'sentSegmentation':
             return sentenceController.sentSegmentation(request)
+        elif type == 'getSentenceIPA':
+            return sentenceController.getSentenceIPA(request)
 
 
 @csrf_exempt

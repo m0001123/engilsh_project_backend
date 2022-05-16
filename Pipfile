@@ -4,6 +4,16 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+django = "*"
+django-cors-headers = "*"
+djangorestframework = "*"
+uwsgi = "*"
+pymysql = "*"
+eng-to-ipa = "*"
+similar-text = "*"
+language-tool-python = "*"
+spacy = "*"
+en-core-web-sm = {file = "https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.0.0/en_core_web_sm-3.0.0.tar.gz"}
 
 [dev-packages]
 

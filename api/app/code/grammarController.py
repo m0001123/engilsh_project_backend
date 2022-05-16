@@ -19,7 +19,23 @@ def checkGrammar(request):
         sentenceTextOriginalArray = []
         sentenceTextCheckedArray = []
 
+        # 檢查句子錯誤的地方
         matches = tool.check(sentenceText)
+        # 多少個錯誤
+        sentenceErrorLen = len(matches)
+
+        ruleId = []
+        message = []
+        replacement = []
+
+        # 分別取得錯誤的ID、訊息、可以替換的
+        for i, s in enumerate(matches):
+            ruleId.append(s.ruleId)
+            message.append(s.message)
+            replacement.append(s.replacements)
+
+        sentenceError = list(zip(ruleId, message, replacement))
+
         if matches:
             sentenceTextOriginalArray.append(sentenceText[:matches[0].offset])
             sentenceTextCheckedArray.append(sentenceText[:matches[0].offset])
@@ -42,6 +58,8 @@ def checkGrammar(request):
             'sentenceTextChecked' : sentenceTextChecked,
             'sentenceTextOriginalArray' : sentenceTextOriginalArray,
             'sentenceTextCheckedArray' : sentenceTextCheckedArray,
+            'sentenceError' : sentenceError,
+            'sentenceErrorLen' : sentenceErrorLen,
         }
         # 初始化回傳值
         response = {
